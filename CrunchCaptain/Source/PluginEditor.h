@@ -14,7 +14,8 @@
 //==============================================================================
 /**
 */
-class CrunchCaptainAudioProcessorEditor  : public juce::AudioProcessorEditor
+class CrunchCaptainAudioProcessorEditor  : public juce::AudioProcessorEditor,
+                                           public juce::Slider::Listener
 {
 public:
     CrunchCaptainAudioProcessorEditor (CrunchCaptainAudioProcessor&);
@@ -30,5 +31,6 @@ private:
     // access the processor object that created it.
     CrunchCaptainAudioProcessor& audioProcessor;
     float mGain { 1.0f }; // Default to 1.0f, meaning no change in gain
+    juce::Slider gainSlider; 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (CrunchCaptainAudioProcessorEditor)
 };
